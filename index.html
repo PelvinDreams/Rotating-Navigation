@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Navigation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/371761de95.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #333;
+    color: #222;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    height: 100vh;
+    padding: 50px;
+}
+
+.container.show-nav{
+    transform: rotate(-20deg);
+}
+
+.circle-container{
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+
+.circle{
+    background-color: #ff7070;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+.circle button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.circle button:focus{
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.container.container.show-nav + nav  li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+nav{
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul{
+    list-style: none;
+    padding-left: 30px;
+}
+
+nav ul li{
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition:  transform 0.4s ease-in;
+}
+
+nav ul li i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul li + li{
+    margin-left: 15px;
+    transform: translateX(-150%);
+
+}
+
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+
+}
+
+.content img {
+    max-width: 100%;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.content h1 {
+    margin: 0;
+}
+
+
+.content small {
+    color: #555;
+    font-style: italic;
+}
+
+.content p{
+    color: #333;
+    line-height: 1.5;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="circle-container">
+            <div class="circle">
+                <button id="close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button id="open">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Amazing Article</h1>
+            <small>Florin Pop</small>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis natus 
+                illum magni quibusdam ex cupiditate a, repellendus saepe quod consectetur 
+                corrupti at atque veritatis necessitatibus modi labore tempore aspernatur nam 
+                dolorem optio quaerat nulla ea enim? Ducimus, sed quis aspernatur itaque praesentium
+                 fuga distinctio vitae neque delectus harum nostrum voluptatem tempora, laborum
+                  aliquam rerum possimus quidem iusto animi, facere unde! Maxime est laudantium 
+                  provident ab accusantium, dolorum error saepe perferendis, possimus a minus 
+                  rerum molestias nisi voluptatibus odit voluptatem reprehenderit cumque, 
+                  illum voluptas? Quam ea asperiores numquam, libero repudiandae modi 
+                  excepturi voluptatibus rem esse neque eius minus sed natus nemo.</p>
+                  
+
+                  <h3>My Dog</h3>
+                  <img src="images/dog.jpg" alt="doggy">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa 
+                    perspiciatis atque deserunt numquam voluptate blanditiis mollitia 
+                    libero sapiente suscipit culpa maiores ut sit iure fugiat ab totam
+                    incidunt laudantium aut, iusto in, dolore accusamus consectetur. 
+                    Praesentium nostrum at qui quae. Modi esse labore et, quia perspiciatis 
+                    accusamus dolores corrupti eum, harum excepturi consectetur neque dolor
+                     reiciendis fugiat atque nisi ipsum officia voluptatem omnis alias,
+                    exercitationem aliquid quidem. Ducimus temporibus modi minus quis illum beatae animi?</p>
+        </div>
+    </div>
+
+          <nav>
+            <ul>
+                <li> <i class="fas fa-home"></i> Home</li>
+                <li> <i class="fas fa-user-alt"></i> About</li>
+                <li> <i class="fas fa-envelope"></i> Contact</li>
+            </ul>
+          </nav>
+    <script src="script.js"></script>
+</body>
+</html>
